@@ -3,6 +3,7 @@ import {blogsRepo} from "../repositories/blog-repo";
 import {CustomValidator} from "express-validator";
 import {inputValidationMiddleware} from "../middlewares/inputValidationMiddleware";
 import {authGuard} from "../middlewares/authGuard";
+import {testingRouter} from "./testingRouter";
 const { body} = require('express-validator');
 
 export const blogsRouter = Router({})
@@ -32,6 +33,9 @@ blogsRouter.post('/',authGuard,blogNameValidation,urlValidation,inputValidationM
 
 const blog = blogsRepo.createBlog(req.body.name, req.body.youtubeUrl)
     res.status(204).send(blog)
+})
+blogsRouter.delete('/testing/all-data',(req:Request, res:Response)=>{
+    res.status(204).send([]);
 })
 blogsRouter.get('/:id',(req:Request, res:Response)=>{
     const blog = blogsRepo.findBlogById(req.params.id);

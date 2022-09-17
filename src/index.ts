@@ -18,7 +18,9 @@ const authGuard = (req:Request, res:Response, next:NextFunction) => {
 }
 
 app.use(parserMiddleware);
-app.use('/hometask_02/api/', testingRouter)
+app.get('/ht_02/api/testing/all-data',(req:Request, res:Response)=>{
+    res.status(204).send([]);
+})
 app.use('/ht_02/api/blogs', blogsRouter)
 app.use('/ht_02/api/posts', postsRouter)
 app.get('/',(req:Request, res:Response)=>{
