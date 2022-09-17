@@ -21,8 +21,8 @@ app.use(parserMiddleware);
 app.get('/api/testing/all-data',(req:Request, res:Response)=>{
     res.status(204).send([]);
 })
-app.use('/api/blogs', blogsRouter)
-app.use('/api/posts', postsRouter)
+app.use('/ht02/api/blogs', blogsRouter)
+app.use('/ht02/api/posts', postsRouter)
 app.get('/',(req:Request, res:Response)=>{
     res.send('Hello!')
 })
