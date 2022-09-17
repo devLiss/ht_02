@@ -18,11 +18,11 @@ const authGuard = (req:Request, res:Response, next:NextFunction) => {
 }
 
 app.use(parserMiddleware);
-app.get('/ht_02/api/testing/all-data',(req:Request, res:Response)=>{
+app.get('/api/testing/all-data',(req:Request, res:Response)=>{
     res.status(204).send([]);
 })
-app.use('/ht_02/api/blogs', blogsRouter)
-app.use('/ht_02/api/posts', postsRouter)
+app.use('/api/blogs', blogsRouter)
+app.use('/api/posts', postsRouter)
 app.get('/',(req:Request, res:Response)=>{
     res.send('Hello!')
 })
