@@ -27,7 +27,7 @@ export const postRepo = {
             shortDescription:shortDescription,
             content:content,
             blogId:blogId,
-            blogName:null
+            blogName:blogId
         }
 
         posts.push(post)
