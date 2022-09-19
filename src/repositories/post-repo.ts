@@ -1,5 +1,4 @@
-import {blogs, posts} from "../data";
-import {postType} from "../types";
+import {posts} from "../data";
 
 export const postRepo = {
     findAllPosts(){
@@ -17,10 +16,7 @@ export const postRepo = {
         }
         return false
     },
-    createPost(title:string,
-    shortDescription:string,
-    content:string,
-    blogId:string){
+    createPost(title:string, shortDescription:string, content:string, blogId:string){
         const post = {
             id:Math.random().toString(),
             title:title,
@@ -39,16 +35,14 @@ export const postRepo = {
                 content: string,
                 blogId: string){
         const post = this.findPostById(id);
-        if(post)
+        if(!post)
         {
-            post.title=title
-            post.shortDescription=shortDescription
-            post.content=content
-            post.blogId=blogId
-
-            return true
+            return false
         }
-        return false
-
+        post.title=title
+        post.shortDescription=shortDescription
+        post.content=content
+        post.blogId=blogId
+        return true
     }
 }
