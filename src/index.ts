@@ -7,7 +7,6 @@ import {blogsRouter} from "./routes/blogsRouter";
 import {postsRouter} from "./routes/postsRouter";
 const app = express()
 const port = process.env.PORT || 5005
-const parserMiddleware = bodyParser({})
 
 const authGuard = (req:Request, res:Response, next:NextFunction) => {
     if(req.body.login === 'admin' && req.body.password === 'qwerty'){
@@ -17,7 +16,7 @@ const authGuard = (req:Request, res:Response, next:NextFunction) => {
     {res.send(401)}
 }
 
-app.use(parserMiddleware);
+app.use(bodyParser.json());
 app.get('/api/testing/all-data',(req:Request, res:Response)=>{
     res.status(204).send([]);
 })
