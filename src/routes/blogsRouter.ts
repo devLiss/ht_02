@@ -32,7 +32,7 @@ blogsRouter.get('/',(req:Request, res:Response)=>{
 blogsRouter.post('/',authGuard,blogNameValidation,urlValidation,inputValidationMiddleware,(req:Request, res:Response)=>{
 
 const blog = blogsRepo.createBlog(req.body.name, req.body.youtubeUrl)
-    res.status(204).send(blog)
+    res.status(201).send(blog)
 })
 /*blogsRouter.delete('/testing/all-data',(req:Request, res:Response)=>{
     res.status(204).send([]);

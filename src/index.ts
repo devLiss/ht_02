@@ -8,16 +8,16 @@ import {postsRouter} from "./routes/postsRouter";
 const app = express()
 const port = process.env.PORT || 5005
 
-const authGuard = (req:Request, res:Response, next:NextFunction) => {
+/*const authGuard = (req:Request, res:Response, next:NextFunction) => {
     if(req.body.login === 'admin' && req.body.password === 'qwerty'){
         next();
     }
     else
     {res.send(401)}
-}
+}*/
 
 app.use(bodyParser.json());
-app.get('/testing/all-data',(req:Request, res:Response)=>{
+app.delete('/testing/all-data',(req:Request, res:Response)=>{
     res.status(204).send([]);
 })
 app.use('/blogs', blogsRouter)
