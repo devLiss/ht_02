@@ -17,7 +17,7 @@ postsRouter.get('/', (req:Request, res:Response)=>{
     const data = postRepo.findAllPosts();
     res.status(200).send(data);
 })
-postsRouter.post('/', postTitleValidation,postShortDescrValidation, postContentValidation, postBlogIdValidation,inputValidationMiddleware, (req:Request, res:Response)=>{
+postsRouter.post('/', authGuard, postTitleValidation,postShortDescrValidation, postContentValidation, postBlogIdValidation,inputValidationMiddleware, (req:Request, res:Response)=>{
     const post = postRepo.createPost(req.body.title,
         req.body.shortDescription,
         req.body.content,
@@ -28,7 +28,7 @@ postsRouter.get('/:id', (req:Request, res:Response)=>{
     const post = postRepo.findPostById(req.params.id);
     post ? res.status(200).send(post) : res.send(404)
 })
-postsRouter.put('/:id', postTitleValidation,postShortDescrValidation, postContentValidation, postBlogIdValidation,inputValidationMiddleware,(req:Request, res:Response)=>{
+postsRouter.put('/:id', authGuard, postTitleValidation,postShortDescrValidation, postContentValidation, postBlogIdValidation,inputValidationMiddleware,(req:Request, res:Response)=>{
     const isUpdated = postRepo.updatePost(
         req.params.id,
         req.body.title,
@@ -38,7 +38,7 @@ postsRouter.put('/:id', postTitleValidation,postShortDescrValidation, postConten
 
     isUpdated ? res.send(204) : res.send(404)
 })
-postsRouter.delete('/:id', (req:Request, res:Response)=>{
+postsRouter.delete('/:id', authGuard,(req:Request, res:Response)=>{
     const isDeleted = postRepo.deletePost(req.params.id);
     isDeleted ? res.send(204) : res.send(404);
 })
