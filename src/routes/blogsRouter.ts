@@ -34,9 +34,9 @@ blogsRouter.post('/',authGuard,blogNameValidation,urlValidation,inputValidationM
 const blog = blogsRepo.createBlog(req.body.name, req.body.youtubeUrl)
     res.status(204).send(blog)
 })
-blogsRouter.delete('/testing/all-data',(req:Request, res:Response)=>{
+/*blogsRouter.delete('/testing/all-data',(req:Request, res:Response)=>{
     res.status(204).send([]);
-})
+})*/
 blogsRouter.get('/:id',(req:Request, res:Response)=>{
     const blog = blogsRepo.findBlogById(req.params.id);
     blog ? res.status(200).send(blog):res.send(404);
