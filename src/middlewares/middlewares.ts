@@ -12,5 +12,5 @@ const isValidUrl: CustomValidator = value => {
 export const blogNameValidation = body('name').trim(" ")
     .isLength({min:1, max:15}).withMessage('Поле не должно быть пустым и не должно превышать 15 символов')
 export const urlValidation =  body('youtubeUrl')
-    .isLength({min:1, max:100}).withMessage('Поле не должно быть пустым и не должно превышать 100 символов')
     .custom(isValidUrl)
+    .isLength({min:1, max:100}).withMessage('Поле не должно быть пустым и не должно превышать 100 символов')
