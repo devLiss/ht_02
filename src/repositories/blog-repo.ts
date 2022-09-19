@@ -17,7 +17,7 @@ export const blogsRepo = {
                youtubeUrl:string,
     ){
         const blog = {
-            id:new Date().toString(),
+            id:Math.random().toString(),
             name:name,
             youtubeUrl:youtubeUrl,
         }
