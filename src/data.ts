@@ -38,7 +38,7 @@ export const posts=[
         blogName:"blog_123"
     },
     {
-        id:"3",
+        id:"0.8631305812188788",
         title:"post 123",
         shortDescription:"hvhjdf;sw",
         content:"knbfdfl",

@@ -22,7 +22,7 @@ export const postRepo = {
     content:string,
     blogId:string){
         const post = {
-            id:Math.ceil(Math.random()).toString(),
+            id:Math.random().toString(),
             title:title,
             shortDescription:shortDescription,
             content:content,
