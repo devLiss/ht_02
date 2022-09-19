@@ -3,16 +3,16 @@ import {postRepo} from "../repositories/post-repo";
 import {authGuard} from "../middlewares/authGuard";
 import {body} from "express-validator";
 import {inputValidationMiddleware} from "../middlewares/inputValidationMiddleware";
+import {
+    postBlogIdValidation,
+    postContentValidation,
+    postShortDescrValidation,
+    postTitleValidation
+} from "../middlewares/middlewares";
 
 export const postsRouter = Router({})
 
-const postTitleValidation = body('title')
-                                .isLength({min:1, max:30}).withMessage('Поле не должно быть пустым или быть больше 30 символов')
-const postShortDescrValidation = body('shortDescription')
-                                .isLength({min:1, max:100}).withMessage('Поле не должно быть пустым или быть больше 100 символов')
-const postContentValidation = body('content')
-                                .isLength({min:1, max:1000}).withMessage('Поле не должно быть пустым или быть больше 1000 символов')
-const postBlogIdValidation = body('blogId').isString().withMessage('Поле должно быть строкой')
+
 postsRouter.get('/', (req:Request, res:Response)=>{
     const data = postRepo.findAllPosts();
     res.status(200).send(data);
