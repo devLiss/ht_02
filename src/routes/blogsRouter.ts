@@ -15,12 +15,8 @@ const isValidUrl: CustomValidator = value => {
 };
 
 const blogNameValidation = body('name')
-        .notEmpty().withMessage('Поле не должно быть пустым')
-        .isString().withMessage('Поле должно быть строкой')
         .isLength({min:1, max:15}).withMessage('Поле не должно быть пустым и не должно превышать 15 символов')
 const urlValidation =  body('youtubeUrl')
-        .notEmpty().withMessage('Поле не должно быть пустым')
-        .isString().withMessage('Поле должно быть строкой')
         .isLength({min:1, max:100}).withMessage('Поле не должно быть пустым и не должно превышать 100 символов')
         .custom(isValidUrl)
 
