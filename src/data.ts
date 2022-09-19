@@ -43,7 +43,7 @@ export const posts=[
         shortDescription:"hvhjdf;sw",
         content:"knbfdfl",
         blogId:"2",
-        blogName:null
+        blogName:"blog_124"
     }
 ]
 /*
