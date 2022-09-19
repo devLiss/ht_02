@@ -48,5 +48,5 @@ blogsRouter.put('/:id',authGuard,blogNameValidation,urlValidation,inputValidatio
 })
 blogsRouter.delete('/:id',authGuard,(req:Request, res:Response)=>{
     const isDeleted = blogsRepo.deleteBlog(req.params.id)
-    isDeleted ? res.send(201) : res.send(404)
+    isDeleted ? res.send(204) : res.send(404)
 })
