@@ -21,12 +21,10 @@ export const blogsRepo = {
             name:name,
             youtubeUrl:youtubeUrl,
         }
-
         blogs.push(blog);
         return blog;
     },
     deleteBlog(id:string|null){
-
           for(let i=0; i < blogs.length; i++){
               if(blogs[i].id === id) {
                   blogs.splice(i,1);
