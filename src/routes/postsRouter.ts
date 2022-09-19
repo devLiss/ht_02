@@ -1,7 +1,6 @@
 import {Request, Response, Router} from "express";
 import {postRepo} from "../repositories/post-repo";
 import {authGuard} from "../middlewares/authGuard";
-import {body} from "express-validator";
 import {inputValidationMiddleware} from "../middlewares/inputValidationMiddleware";
 import {
     postBlogIdValidation,

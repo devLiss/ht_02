@@ -10,12 +10,8 @@ export const authGuard = (req:Request, res:Response, next:NextFunction)=>
     const matchArr = header.match(/^Basic (.*)$/)
     if(!matchArr){ res.send(401)}
     // @ts-ignore
-    const logoPass = Buffer.from(matchArr[1], 'base64').toString();
-    console.log(logoPass.split(':')[1])
-    const login = logoPass.split(':')[0];
-    const passwd = logoPass.split(':')[1]
+    const [login, passwd] = Buffer.from(matchArr[1], 'base64').toString().split(':');
     if (login === 'admin' && passwd==='qwerty') {
-        console.log('before next')
         next();
     }
     else{

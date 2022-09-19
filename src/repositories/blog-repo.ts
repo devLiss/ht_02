@@ -6,16 +6,13 @@ export const blogsRepo = {
     },
 
     findBlogById(id:string|null){
-        if(id){
-            return blogs.find(blog => blog.id === id)
-        }
-        else{
+        if(!id){
             return null
         }
+        return blogs.find(blog => blog.id === id)
+
     },
-    createBlog(name:string,
-               youtubeUrl:string,
-    ){
+    createBlog(name:string, youtubeUrl:string){
         const blog = {
             id:Math.random().toString(),
             name:name,
@@ -33,17 +30,14 @@ export const blogsRepo = {
           }
           return false
       },
-    updateBlog(id:string,
-               name:string,
-               youtubeUrl:string
-               ){
+    updateBlog(id:string, name:string, youtubeUrl:string ){
         const blog = this.findBlogById(id);
-        if(blog){
-            blog.name = name;
-            blog.youtubeUrl=youtubeUrl;
-            return true
+        if(!blog){
+            return false
         }
-        return false
+        blog.name = name;
+        blog.youtubeUrl=youtubeUrl;
+        return true
       }
 
 }

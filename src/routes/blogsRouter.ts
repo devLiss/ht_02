@@ -1,9 +1,7 @@
 import {Router, Request, Response, NextFunction} from "express";
 import {blogsRepo} from "../repositories/blog-repo";
-import {CustomValidator} from "express-validator";
 import {inputValidationMiddleware} from "../middlewares/inputValidationMiddleware";
 import {authGuard} from "../middlewares/authGuard";
-import {testingRouter} from "./testingRouter";
 import {blogNameValidation, urlValidation} from "../middlewares/middlewares";
 const { body} = require('express-validator');
 
